@@ -24,3 +24,4 @@ if st.button("Make Prediction"):
     response = requests.post(API_URL, json=input_data)
     prediction = response.json()["prediction"]
     st.write(f"Prediction: {prediction}")
+
