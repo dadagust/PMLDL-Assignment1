@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: code/deployment/api/Dockerfile
+    volumes:
+      - ./models:/app/models
+    ports:
+      - "8000:8000"
+
+  app:
+    build:
+      context: .
+      dockerfile: code/deployment/app/Dockerfile
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
